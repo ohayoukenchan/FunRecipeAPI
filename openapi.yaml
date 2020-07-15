@@ -34,11 +34,48 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  id:
-                    type: integer
-                    format: int64
-                  name:
-                    type: string
-                    example: doggie
+                $ref: '#/components/schemas/cooking_records_body'
+components:
+  schemas:
+    pagination:
+      description: ページングに関する情報
+      type: object
+      properties:
+        total: 
+          type: integer
+          example: 100
+        offset: 
+          type: integer
+          example: 50
+        limit: 
+          type: integer
+          example: 5
+    cooking_record:
+      description: ユーザーの料理記録
+      type: object
+      properties:
+        image_url: 
+          type: string
+          example: "https://cooking-records.herokuapp.com/images/51.jpg"
+        comment: 
+          type: string
+          example: "パンチのきいた辛味が印象的です。"
+        recipe_type: 
+          type: string
+          example: "main_dish"
+        recorded_at: 
+          type: string
+          example: "2018-04-21 14:04:22"
+    cooking_records:
+      description: ユーザーの料理記録の配列
+      type: array
+      items:
+        $ref: '#/components/schemas/cooking_record'
+    cooking_records_body: 
+      description: ユーザーの料理記録とページングを返却する
+      type: object
+      properties:
+        pagination:
+          $ref: '#/components/schemas/pagination'
+        cooking_records:
+          $ref: '#/components/schemas/cooking_records'
