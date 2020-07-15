@@ -1,0 +1,44 @@
+openapi: 3.0.0
+info:
+  description: "たのしいレシピ開発用APIです。"
+  version: 1.0.0
+  title: CookingBook API
+  termsOfService: https://gist.github.com/kenko-devel/8fd626708b4f6d2eea1f29ce9b7bb8c3
+servers:
+  - url: https://cooking-records.herokuapp.com/
+    description: 技術試験で提供されている公開API
+    variables:
+      host:
+        default: localhost
+      port:
+        default: '10080'
+paths:
+  /cooking_records:
+    get:
+      summary: ユーザーの料理記録API
+      description: ユーザーの料理記録レコードを返すもの
+      parameters:
+        - in: query
+          name: offset
+          schema:
+            type: integer
+          description: オフセット
+        - in: query
+          name: limit
+          schema:
+            type: integer
+          description: リクエスト時指定の取得数
+      responses:
+        200:
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    format: int64
+                  name:
+                    type: string
+                    example: doggie

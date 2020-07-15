@@ -1,0 +1,9 @@
+{
+  "podSource": "{ :git => \"https://github.com/ohayoukenchan/FunRecipeAPI.git\"}",
+  "projectName": "FunRecipeAPI",
+  "podHomepage": "https://github.com/ohayoukenchan/FunRecipeAPI",
+  "podSummary": "たのしいレシピのAPI",
+  "podVersion": "0.0.1",
+  "responseAs": "RxSwift",
+  "library": "alamofire"
+}
