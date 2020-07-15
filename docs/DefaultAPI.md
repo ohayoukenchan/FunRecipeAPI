@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **cookingRecordsGet**
 ```swift
-    open class func cookingRecordsGet(offset: Int? = nil, limit: Int? = nil) -> Observable<InlineResponse200>
+    open class func cookingRecordsGet(offset: Int? = nil, limit: Int? = nil) -> Observable<CookingRecordsBody>
 ```
 
 ユーザーの料理記録API
@@ -36,7 +36,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**CookingRecordsBody**](CookingRecordsBody.md)
 
 ### Authorization
 

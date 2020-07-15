@@ -30,7 +30,9 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
- - [InlineResponse200](docs/InlineResponse200.md)
+ - [CookingRecord](docs/CookingRecord.md)
+ - [CookingRecordsBody](docs/CookingRecordsBody.md)
+ - [Pagination](docs/Pagination.md)
 
 
 ## Documentation For Authorization

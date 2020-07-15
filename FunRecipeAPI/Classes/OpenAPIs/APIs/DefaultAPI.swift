@@ -17,9 +17,9 @@ open class DefaultAPI {
      - parameter offset: (query) オフセット (optional)
      - parameter limit: (query) リクエスト時指定の取得数 (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - returns: Observable<InlineResponse200>
+     - returns: Observable<CookingRecordsBody>
      */
-    open class func cookingRecordsGet(offset: Int? = nil, limit: Int? = nil, apiResponseQueue: DispatchQueue = FunRecipeAPIAPI.apiResponseQueue) -> Observable<InlineResponse200> {
+    open class func cookingRecordsGet(offset: Int? = nil, limit: Int? = nil, apiResponseQueue: DispatchQueue = FunRecipeAPIAPI.apiResponseQueue) -> Observable<CookingRecordsBody> {
         return Observable.create { observer -> Disposable in
             cookingRecordsGetWithRequestBuilder(offset: offset, limit: limit).execute(apiResponseQueue) { result -> Void in
                 switch result {
@@ -40,9 +40,9 @@ open class DefaultAPI {
      - ユーザーの料理記録レコードを返すもの
      - parameter offset: (query) オフセット (optional)
      - parameter limit: (query) リクエスト時指定の取得数 (optional)
-     - returns: RequestBuilder<InlineResponse200> 
+     - returns: RequestBuilder<CookingRecordsBody> 
      */
-    open class func cookingRecordsGetWithRequestBuilder(offset: Int? = nil, limit: Int? = nil) -> RequestBuilder<InlineResponse200> {
+    open class func cookingRecordsGetWithRequestBuilder(offset: Int? = nil, limit: Int? = nil) -> RequestBuilder<CookingRecordsBody> {
         let path = "/cooking_records"
         let URLString = FunRecipeAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -53,7 +53,7 @@ open class DefaultAPI {
             "limit": limit?.encodeToJSON()
         ])
 
-        let requestBuilder: RequestBuilder<InlineResponse200>.Type = FunRecipeAPIAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CookingRecordsBody>.Type = FunRecipeAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
